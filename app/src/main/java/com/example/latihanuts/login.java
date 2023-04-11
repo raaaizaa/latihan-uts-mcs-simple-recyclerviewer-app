@@ -45,6 +45,7 @@ public class login extends AppCompatActivity {
 
             if(inputtedEmail.isEmpty() || inputtedPassword.isEmpty()){
                 Toast.makeText(this, "All fields must be filled!", Toast.LENGTH_SHORT).show();
+                openMainPage();
             }else if(!inputtedEmail.equals("tes123@gmail.com")){
                 Toast.makeText(this, "Invalid Email!", Toast.LENGTH_SHORT).show();
             }else if(!inputtedPassword.equals("tes")){

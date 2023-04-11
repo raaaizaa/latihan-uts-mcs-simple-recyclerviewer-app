@@ -1,36 +1,46 @@
 package com.example.latihanuts;
 
 public class album {
-    String albumName, isBookmark;
-    Integer id;
 
-    public album(String albumName, String isBookmark, Integer id) {
-        this.albumName = albumName;
-        this.isBookmark = isBookmark;
-        this.id = id;
+    String title, artist, year;
+    int image;
+
+    public album(String title, String artist, String year, int image) {
+        this.title = title;
+        this.artist = artist;
+        this.year = year;
+        this.image = image;
     }
 
-    public String getAlbumName() {
-        return albumName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setAlbumName(String albumName) {
-        this.albumName = albumName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getIsBookmark() {
-        return isBookmark;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setIsBookmark(String isBookmark) {
-        this.isBookmark = isBookmark;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
-    public Integer getId() {
-        return id;
+    public String getYear() {
+        return year;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

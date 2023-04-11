@@ -1,25 +1,24 @@
 package com.example.latihanuts;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
 public class main extends AppCompatActivity {
 
     ImageButton account, back;
-    private SQLiteDatabaseHandler db;
     Vector<album> albums;
-    private RecyclerView recyclerView;
-    private albumAdapter adapter;
+    static int[] imageList= {
+        R.drawable.howdidwegetsodark, R.drawable.suckitandsee, R.drawable.kida, R.drawable.isthisit, R.drawable.songsforthedeaf, R.drawable.peripheralvision
+    };
+    RecyclerView albumsRV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +27,20 @@ public class main extends AppCompatActivity {
 
         initialize();
 
-        db = new SQLiteDatabaseHandler(this);
-        recyclerView = (RecyclerView) findViewById(R.id.albumsRV);
+        albums = new Vector<>();
+        albums.add(new album("How Did We Get So Dark?", "Royal Blood", "2017", imageList[0]));
+        albums.add(new album("Suck It And See", "Arctic Monkeys", "2011", imageList[1]));
+        albums.add(new album("Kid A", "Radiohead", "2000", imageList[2]));
+        albums.add(new album("Is This It", "The Strokes", "2001", imageList[3]));
+        albums.add(new album("Songs for The Deaf", "Queens of The Stone Age", "2002", imageList[4]));
+        albums.add(new album("Peripheral Vision", "Turnover", "2015", imageList[5]));
+
+        albumsRV = findViewById(R.id.albumsRV);
+
+        albumAdapter adapter = new albumAdapter(albums, this);
+        albumsRV.setAdapter(adapter);
+
+        albumsRV.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void initialize(){
@@ -46,7 +57,9 @@ public class main extends AppCompatActivity {
         account.setOnClickListener(e -> {
             Toast.makeText(this, "Sorry, this service currently not available!", Toast.LENGTH_SHORT).show();
         });
+
     }
+
 
     public void openLoginPage(){
         Intent intent = new Intent(this, login.class);
