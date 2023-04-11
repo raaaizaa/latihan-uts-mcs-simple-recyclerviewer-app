@@ -27,6 +27,28 @@ public class main extends AppCompatActivity {
 
         initialize();
 
+    }
+
+    public void initialize(){
+        back = findViewById(R.id.backButton);
+        account = findViewById(R.id.accountButton);
+        setNavbar();
+
+        addItemtoRV();
+    }
+
+    public void setNavbar(){
+        back.setOnClickListener(e -> {
+            openLoginPage();
+        });
+
+        account.setOnClickListener(e -> {
+            Toast.makeText(this, "Sorry, this service currently not available!", Toast.LENGTH_SHORT).show();
+        });
+
+    }
+
+    public void addItemtoRV(){
         albums = new Vector<>();
         albums.add(new album("How Did We Get So Dark?", "Royal Blood", "2017", imageList[0]));
         albums.add(new album("Suck It And See", "Arctic Monkeys", "2011", imageList[1]));
@@ -41,23 +63,6 @@ public class main extends AppCompatActivity {
         albumsRV.setAdapter(adapter);
 
         albumsRV.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    public void initialize(){
-        back = findViewById(R.id.backButton);
-        account = findViewById(R.id.accountButton);
-        setNavbar();
-    }
-
-    public void setNavbar(){
-        back.setOnClickListener(e -> {
-            openLoginPage();
-        });
-
-        account.setOnClickListener(e -> {
-            Toast.makeText(this, "Sorry, this service currently not available!", Toast.LENGTH_SHORT).show();
-        });
-
     }
 
 

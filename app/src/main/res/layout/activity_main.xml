@@ -41,7 +41,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:padding="24dp"
-        android:text="List of Available Albums:"/>
+        android:text="Here's a list of some of my favorite album:"/>
     
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/albumsRV"
