@@ -44,13 +44,13 @@ public class login extends AppCompatActivity {
             String inputtedPassword = password.getText().toString();
 
             if(inputtedEmail.isEmpty() || inputtedPassword.isEmpty()){
-                Toast.makeText(this, "All fields must be filled!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "All fields must be filled!!!", Toast.LENGTH_SHORT).show();
             }else if(!inputtedEmail.equals("tes123@gmail.com")){
-                Toast.makeText(this, "Invalid Email!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Invalid Email!!!", Toast.LENGTH_SHORT).show();
             }else if(!inputtedPassword.equals("tes")){
-                Toast.makeText(this, "Wrong password!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Wrong password!!!", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(this, "Login Success!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Login Success!!!", Toast.LENGTH_SHORT).show();
                 openMainPage();
 
             }
